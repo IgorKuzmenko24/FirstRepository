@@ -1,0 +1,15 @@
+[0513/181317.374:ERROR:process_reader_win.cc(173)] ResumeThread: Параметр задан неверно. (0x57)
+[0513/181317.380:ERROR:process_reader_win.cc(114)] NtOpenThread: Указан неверный код клиента.  (0xc000000b)
+[0513/181317.392:ERROR:process_reader_win.cc(114)] NtOpenThread: Указан неверный код клиента.  (0xc000000b)
+[0513/181317.392:ERROR:process_reader_win.cc(114)] NtOpenThread: Указан неверный код клиента.  (0xc000000b)
+[0513/181317.392:ERROR:process_reader_win.cc(114)] NtOpenThread: Указан неверный код клиента.  (0xc000000b)
+[0513/181317.392:ERROR:process_reader_win.cc(114)] NtOpenThread: Указан неверный код клиента.  (0xc000000b)
+[0513/181317.392:ERROR:process_reader_win.cc(114)] NtOpenThread: Указан неверный код клиента.  (0xc000000b)
+[0513/181317.392:ERROR:process_reader_win.cc(114)] NtOpenThread: Указан неверный код клиента.  (0xc000000b)
+[0513/181317.485:ERROR:process_reader_win.cc(233)] ReadMemory at 0x32ac00 of 16 bytes failed: Запрос ReadProcessMemory или WriteProcessMemory был выполнен только частично. (0x12B)
+[0513/181317.485:ERROR:exception_snapshot_win.cc(180)] EXCEPTION_POINTERS read failed
+[0513/181317.485:WARNING:crash_report_exception_handler.cc(60)] ProcessSnapshotWin::Initialize failed
+[0513/181317.486:ERROR:scoped_process_suspend.cc(38)] NtResumeProcess: Попытка доступа к процессу, выполняющему процедуру завершения.  (0xc000010a)
+[0513/221737.857:ERROR:process_reader_win.cc(233)] ReadMemory at 0x5d92ea0 of 512 bytes failed: Запрос ReadProcessMemory или WriteProcessMemory был выполнен только частично. (0x12B)
+[0513/221737.866:ERROR:crash_report_exception_handler.cc(111)] WriteEverything failed
+[0513/221737.898:ERROR:scoped_process_suspend.cc(38)] NtResumeProcess: Попытка доступа к процессу, выполняющему процедуру завершения.  (0xc000010a)
