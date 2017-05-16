@@ -53,7 +53,7 @@ public class MyTestClass {
     }
 
     @Test(priority = 2, description = "Create a letter", dependsOnMethods = "login")
-    public void createLetter()  {
+    public void createLetter() {
         browser.findElement(By.cssSelector("a.b-toolbar__btn.js-shortcut")).click();
         browser.findElement(By.cssSelector("textarea.js-input.compose__labels__input")).sendKeys("test_user13052017@mail.ru");
         browser.findElement(By.cssSelector("input.b-input")).sendKeys("TEST");
@@ -73,13 +73,19 @@ public class MyTestClass {
 
         sleep(10);
         browser.findElement(By.cssSelector("a[class=\"b-nav__link js-shortcut\"]")).click();
-        sleep(30);
-       Assert.assertTrue(checkIfLetterExists("a[class=\"js-href b-datalist__item__link\" "), "The letter has not been sent!");
+        sleep(10);
+
+        Assert.assertTrue(checkLetterSend(), "The letter has not been sent!");
     }
-    public static boolean checkIfLetterExists(String selector) {
+
+    public static boolean checkLetterSend() {
         try {
-            browser.findElement(By.cssSelector(selector));
-            return true;
+            List<WebElement> elements = browser.findElements(By.className("b-datalist__body"));
+            String addr = elements.get(elements.size() - 1).findElement(By.className("b-datalist__item__addr")).getText();
+            if (addr.equals("test_user13052017@mail.ru")) {
+                return true;
+            }
+            return false;
         } catch (Exception e) {
             return false;
         }
