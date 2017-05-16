@@ -1,12 +1,15 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
+
 
 public class MyTestClass {
 
@@ -50,17 +53,19 @@ public class MyTestClass {
     }
 
     @Test(priority = 2, description = "Create a letter", dependsOnMethods = "login")
-    public void createLetter() throws InterruptedException {
+    public void createLetter()  {
         browser.findElement(By.cssSelector("a.b-toolbar__btn.js-shortcut")).click();
-        browser.findElement(By.cssSelector("textarea.js-input.compose__labels__input")).sendKeys("kuzmenko.igor23@gmail.com");
+        browser.findElement(By.cssSelector("textarea.js-input.compose__labels__input")).sendKeys("test_user13052017@mail.ru");
         browser.findElement(By.cssSelector("input.b-input")).sendKeys("TEST");
 
-        //browser.switchTo().frame("toolkit-149468988972438composeEditor_ifr");
-       // browser.findElement(By.cssSelector("#toolkit-149468988972438composeForm > div.compose__editor")).sendKeys("Hello");
-        //browser.switchTo().defaultContent();
-       // browser.findElement(By.xpath("//*[@id=\"tinymce\"]")).click();
-        //browser.findElement(By.cssSelector("div.b-toolbar__btn.b-toolbar__btn_.b-toolbar__btn_false.js-shortcut")).click();
-
+        List<WebElement> iframes = browser.findElements(By.tagName("iframe"));
+        for (WebElement iframe : iframes) {
+            if (iframe.getAttribute("id").contains("composeEditor_ifr")) {
+                browser.switchTo().frame(iframe);
+                WebElement element = browser.findElement(By.cssSelector("Body"));
+                element.sendKeys("TEST MESSAGE");
+            }
+        }
 
     }
 }
