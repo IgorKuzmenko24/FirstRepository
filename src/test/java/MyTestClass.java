@@ -64,8 +64,24 @@ public class MyTestClass {
                 browser.switchTo().frame(iframe);
                 WebElement element = browser.findElement(By.cssSelector("Body"));
                 element.sendKeys("TEST MESSAGE");
+
             }
         }
+        browser.switchTo().defaultContent();
 
+        browser.findElement(By.cssSelector("div[data-name=\"send\"]")).click();
+
+        sleep(10);
+        browser.findElement(By.cssSelector("a[class=\"b-nav__link js-shortcut\"]")).click();
+        sleep(30);
+       Assert.assertTrue(checkIfLetterExists("a[class=\"js-href b-datalist__item__link\" "), "The letter has not been sent!");
+    }
+    public static boolean checkIfLetterExists(String selector) {
+        try {
+            browser.findElement(By.cssSelector(selector));
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
     }
 }
