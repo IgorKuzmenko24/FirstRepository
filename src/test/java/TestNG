@@ -1,0 +1,7 @@
+<suite name= "My Tests Suite">
+    <test name="Mail.ru Tests" >
+        <classes>
+            <class name="TestCases" />
+        </classes>
+    </test>
+</suite>
