@@ -6,27 +6,24 @@ import org.testng.Assert;
 import java.util.List;
 
 import static org.openqa.selenium.By.cssSelector;
+interface DataForLetter{
+     String ADDRESS = "test_user13052017@mail.ru";
+     String SubjectOfLetter = "TEST";
+     By writeLetterButton = cssSelector("a.b-toolbar__btn.js-shortcut");
+     By addrField = cssSelector("textarea.js-input.compose__labels__input");
+     By subjField = cssSelector("input.b-input");
+     String testText = "TEST MESSAGE";
+     By sendButton = cssSelector("div[data-name=\"send\"]");
+     By listSendLetters = cssSelector("a[class=\"b-nav__link js-shortcut\"]");
 
-public class CreateLetter {
+}
+public class CreateLetter implements DataForLetter {
 
     protected WebDriver driver;
 
     public CreateLetter(WebDriver driver) {
         this.driver = driver;
     }
-
-    private String ADDRESS = "test_user13052017@mail.ru";
-    private String SubjectOfLetter = "TEST";
-    private By writeLetterButton = cssSelector("a.b-toolbar__btn.js-shortcut");
-    private By addrField = cssSelector("textarea.js-input.compose__labels__input");
-    private By subjField = cssSelector("input.b-input");
-    private String testText = "TEST MESSAGE";
-    private By sendButton = cssSelector("div[data-name=\"send\"]");
-    private By listSendLetters = cssSelector("a[class=\"b-nav__link js-shortcut\"]");
-
-
-
-
 
     public void createLetter() {
         driver.findElement(writeLetterButton).click();
